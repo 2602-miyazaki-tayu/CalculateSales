@@ -68,6 +68,13 @@ public class CalculateSales {
 			// 一行ずつ読み込む
 			while((line = br.readLine()) != null) {
 				// ※ここの読み込み処理を変更してください。(処理内容1-2)
+				//支店名と支店コードをそれぞれカンマで分割して配列に保存する
+				//items[0] には支店コード、items[1] には支店名が格納される。
+			    String[] items = line.split(",");
+			    //それぞれの要素をMAP型変数branchNamesとbranchSalesにputで追加
+			    //ただし1-2段階だと金額は0円と記入するためbranchSalesの金額は0Lとする
+			    branchNames.put(items[0], items[1]);
+			    branchSales.put(items[1], 0L);
 				System.out.println(line);
 			}
 
